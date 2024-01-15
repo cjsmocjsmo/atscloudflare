@@ -1,0 +1,79 @@
+---
+import FiveStar from "../components/star_five.astro";
+import FourStar from "../components/star_four.astro";
+import ThreeStar from "../components/star_three.astro";
+import TwoStar from "../components/star_two.astro";
+import OneStar from "../components/star_one.astro";
+
+interface Props {
+	name: string;
+	date: string;
+	stars: string;
+	comment: string;
+}
+
+const { name, date, stars, comment } = Astro.props;
+---
+
+<div class="txtDiv">
+	{
+		stars === "5" ? (
+			<FiveStar />
+		) : stars === "4" ? (
+			<FourStar />
+		) : stars === "3" ? (
+			<ThreeStar />
+		) : stars === "2" ? (
+			<TwoStar />
+		) : stars === "1" ? (
+			<OneStar />
+		) : (
+			""
+		)
+	}
+	<p class="txtName">{name}</p>
+	<p class="txtDate">{date}</p>
+	<p class="txttxt">{comment}</p>
+</div>
+<style>
+	.txtDiv {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+		margin: 3rem;
+		border: 2px solid blue;
+		border-radius: 8px;
+	}
+	@media (max-width: 400px) {
+		.txtDiv {
+			width: 100%;
+			margin: 0;
+		}
+	}
+	.txtName {
+		font-size: 1.5rem;
+		font-weight: 700;
+		color: antiquewhite;
+	}
+	.txtDate {
+		font-size: 1rem;
+		font-weight: 700;
+		color: antiquewhite;
+	}
+	.txttxt {
+		font-size: 1.25rem;
+		color: antiquewhite;
+		margin: 1rem;
+	}
+	@media (max-width: 400px) {
+		.txttxt {
+			font-size: 1rem;
+		}
+	}
+	p {
+		font-size: 1.25rem;
+		color: antiquewhite;
+		margin: 1rem;
+	}
+</style>
