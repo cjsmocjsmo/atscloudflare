@@ -1,0 +1,31 @@
+---
+import Layout from "../layouts/Layout.astro";
+---
+
+<Layout title="Completed">
+    <main>
+        <div class="completed">
+            <h1>Completed</h1>
+            <p>Thank you! The estimate has been flagged COMPLETED!</p>
+        </div>
+    </main>
+</Layout>
+
+<style>
+    main {
+        margin: auto;
+        padding: 1rem;
+        width: 800px;
+        max-width: calc(100% - 2rem);
+        min-height: 100vh;
+        color: white;
+        font-size: 20px;
+        line-height: 1.6;
+    }
+    .completed {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+</style>

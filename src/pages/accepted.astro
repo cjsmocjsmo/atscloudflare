@@ -1,0 +1,32 @@
+---
+import Layout from "../layouts/Layout.astro";
+---
+
+<Layout title="Accepted">
+    <main>
+        <div class="accepted">
+            <h1>Accepted</h1>
+            <p>Thank you! The comment has been flagged ACCEPED!</p>
+        </div>
+    </main>
+</Layout>
+
+<style>
+    main {
+        margin: auto;
+        padding: 1rem;
+        width: 800px;
+        max-width: calc(100% - 2rem);
+        min-height: 100vh;
+        color: white;
+        font-size: 20px;
+        line-height: 1.6;
+    }
+    .accepted {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        margin-top: 2rem;
+    }
+</style>

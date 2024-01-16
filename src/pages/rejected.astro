@@ -1,0 +1,31 @@
+---
+import Layout from "../layouts/Layout.astro";
+---
+
+<Layout title="Rejected">
+    <main>
+        <div class="rejected">
+            <h1>Rejected</h1>
+            <p>Thank you! The comment has been flagged REJECTED!</p>
+        </div>
+    </main>
+</Layout>
+
+<style>
+    main {
+        margin: auto;
+        padding: 1rem;
+        width: 800px;
+        max-width: calc(100% - 2rem);
+        min-height: 100vh;
+        color: white;
+        font-size: 20px;
+        line-height: 1.6;
+    }
+    .rejected {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+</style>
