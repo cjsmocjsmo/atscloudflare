@@ -1,16 +1,17 @@
 ---
 import Layout from "../layouts/Layout.astro";
+import Title from "../components/Title.astro";
+import Telephone from "../components/Telephone.astro";
 import Card from "../components/Card.astro";
-// import Card2 from '../components/Card2.astro';
 import ComCard from "../components/ComCard.astro";
 import FiveStar from "../components/star_five.astro";
 ---
 
 <Layout title="Alpha Tree Service">
 	<main>
-		<h1>Alpha Tree <span class="text-gradient">Service</span></h1>
+		<Title />
 
-		<!-- <img class="mainImg" src="https://atsdo.xyz/images/landscape/main_img_800.webp" alt="Alpha Tree Service" /> -->
+		
 		<picture>
 			<source
 				media="(min-width: 600px)"
@@ -26,9 +27,11 @@ import FiveStar from "../components/star_five.astro";
 				alt="Alpha Tree Service"
 			/>
 		</picture>
+		
+		<Telephone />
 
-		<h1 class="instructions"><a href="tel:3605168933">360 516 8933</a></h1>
-		<p class="emerg">24/7 Emergency Service Available</p>
+		<p class="emerg">24/7 Emergency Service</p>
+		
 		<div>
 			<ul class="link-card-grid">
 				<Card
@@ -62,11 +65,6 @@ import FiveStar from "../components/star_five.astro";
 					title="Testimonials"
 					body="Discover what our valued customers are saying. We would appreciate your feedback."
 				/>
-				<!-- <Card
-					href="/postcom"
-					title="Testimonials"
-					body="Come see what our customers are saying.  We would ❤️ for you to leave use a comment."
-				/> -->
 			</ul>
 		</div>
 		<ComCard
@@ -81,8 +79,10 @@ import FiveStar from "../components/star_five.astro";
       the other bids and took the tree down safely while there! 
       Amazing service, quality work, reasonable price...perfect!`
 		/>
+
+		<Telephone />
+
 		<footer>
-			<!-- <p> 🇺🇸</p> -->
 			<p class="flag">Ask about Veterans Discounts!</p>
 			<!-- <p> 🇺🇸</p> -->
 		</footer>
@@ -90,46 +90,10 @@ import FiveStar from "../components/star_five.astro";
 </Layout>
 
 <style>
-	.txtDiv {
-		display: flex;
-		flex-direction: column;
-		align-items: center;
-		justify-content: center;
-		margin: 3rem;
-		border: 2px solid blue;
-		border-radius: 8px;
-	}
-	.txtName {
-		font-size: 1.5rem;
-		font-weight: 700;
-		color: antiquewhite;
-	}
-	.txtDate {
-		font-size: 1rem;
-		font-weight: 700;
-		color: antiquewhite;
-	}
-	.txttxt {
-		font-size: 1.25rem;
-		color: antiquewhite;
-		margin: 1rem;
-	}
 	p {
 		font-size: 1.25rem;
 		color: antiquewhite;
 		margin: 1rem;
-	}
-	@media (max-width: 400px) {
-		p {
-			font-size: 0.85rem;
-		}
-	}
-	.testDiv {
-		display: flex;
-		flex-direction: row;
-		flex-wrap: wrap;
-		justify-content: center;
-		align-items: center;
 	}
 	footer {
 		display: flex;
@@ -139,11 +103,11 @@ import FiveStar from "../components/star_five.astro";
 		background: black;
 		color: white;
 		padding: 1rem;
-		margin-top: 5rem;
+		margin-top: 2rem;
 	}
 	.emerg {
 		text-align: center;
-		font-size: 1.75rem;
+		font-size: 2rem;
 		font-weight: 700;
 		color: red;
 		margin-bottom: 2rem;
@@ -170,53 +134,6 @@ import FiveStar from "../components/star_five.astro";
 		font-size: 20px;
 		line-height: 1.6;
 	}
-	.astro-a {
-		position: absolute;
-		top: -32px;
-		left: 50%;
-		transform: translatex(-50%);
-		width: 220px;
-		height: auto;
-		z-index: -1;
-	}
-	h1 {
-		font-size: 4rem;
-		font-weight: 700;
-		line-height: 1;
-		text-align: center;
-		margin-top: 1em;
-		margin-bottom: 1em;
-	}
-	.text-gradient {
-		background-image: var(--accent-gradient);
-		-webkit-background-clip: text;
-		-webkit-text-fill-color: transparent;
-		background-size: 400%;
-		background-position: 0%;
-	}
-	.instructions {
-		margin-bottom: 2rem;
-		border: 1px solid rgba(var(--accent-light), 25%);
-		background: linear-gradient(
-			rgba(var(--accent-dark), 66%),
-			rgba(var(--accent-dark), 33%)
-		);
-		padding: 1.5rem;
-		border-radius: 8px;
-		text-align: center;
-		color: antiquewhite;
-	}
-	.instructions code {
-		font-size: 0.8em;
-		font-weight: bold;
-		background: rgba(var(--accent-light), 12%);
-		color: rgb(var(--accent-light));
-		border-radius: 4px;
-		padding: 0.3em 0.4em;
-	}
-	.instructions strong {
-		color: rgb(var(--accent-light));
-	}
 	.link-card-grid {
 		display: grid;
 		grid-template-columns: repeat(auto-fit, minmax(24ch, 1fr));
@@ -225,8 +142,11 @@ import FiveStar from "../components/star_five.astro";
 		margin-bottom: 1rem;
 	}
 	@media (max-width: 400px) {
-		h1 {
-			font-size: 2rem;
+		p {
+			font-size: 1.1rem;
+		}
+		.emerg {
+			font-size: 1.5rem;
 		}
 	}
 </style>
