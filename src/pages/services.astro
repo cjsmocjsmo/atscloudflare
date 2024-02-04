@@ -1,17 +1,51 @@
 ---
-import Layout from "../layouts/Layout.astro"
-import HomeBtn from "../components/HomeBtn.astro"
+import Layout from "../layouts/Layout.astro";
+import HomeBtn from "../components/HomeBtn.astro";
+import Telephone from "../components/Telephone.astro";
 ---
 
 <Layout title="Comments">
-    <HomeBtn />
-    <h1>Welcome to the services page</h1>
-    <h1>Under Construction</h1>
-
-
+    <main>
+        <HomeBtn />
+        <Telephone />
+        <h1>Services Offered</h1>
+        <div class="serDiv">
+            <p>24/7 Emergency Service</p>
+            <p>Tree Removal</p>
+            <p>Wind Damaged Tree Removal</p>
+            <p>Tree Trimming</p>
+            <p>Stump Grinding</p>
+            <p>Tree Pruning</p>
+            <p>View Clearing</p>
+            <p>Wind Sailing</p>
+        </div>
+        <Telephone />
+    </main>
 </Layout>
 
 <style>
+    main {
+		margin: auto;
+		padding: 1rem;
+		width: 800px;
+		max-width: calc(100% - 2rem);
+		min-height: 100vh;
+		color: white;
+		font-size: 20px;
+		line-height: 1.6;
+	}
+    .serDiv {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        margin-top: 2rem;
+    }
+    h1 {
+        color: white;
+        text-align: center;
+        font-size: 2rem;
+    }
     img {
         width: 300px;
     }
