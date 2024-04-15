@@ -4,7 +4,7 @@ import HomeBtn from "../components/HomeBtn.astro";
 
 if (Astro.request.method === "POST") {
     try {
-	console.log("fuckit");
+        console.log("fuckit");
         const data = await Astro.request.formData();
         console.log(data);
         const name_raw = data.get("name");
