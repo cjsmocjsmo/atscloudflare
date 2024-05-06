@@ -5,14 +5,86 @@ import Telephone from "../components/Telephone.astro";
 import Card from "../components/Card.astro";
 import ComCard from "../components/ComCard.astro";
 import FiveStar from "../components/star_five.astro";
+
+// const cube = document.getElementById("cube");
+// const leftButton = document.getElementById("back-icon");
+// const rightButton = document.getElementById("forward-icon");
+// const cubeSides = document.querySelectorAll(".side-img");
+
+// let imagesFilePath = [
+//   "https://atsio.xyz/static/500x500/20210901_110629_500x500.webp",
+//   "https://atsio.xyz/static/500x500/20210903_114214_500x500.webp",
+//   "https://atsio.xyz/static/500x500/20211016_144859_500x500.webp"
+// ];
+
+// let imgtag = 0;
+// let srcIndex = 4;
+// let intervalID: number;
+// let isAnimating = true;
+
+// function rotateForwards() {
+// 	clearInterval(intervalID); // Clear previous interval
+// 	intervalID = setInterval(() => {
+// 		(cubeSides[imgtag] as HTMLImageElement).src = imagesFilePath[srcIndex];
+// 		imgtag = (imgtag + 1) % cubeSides.length;
+// 		srcIndex = (srcIndex + 1) % imagesFilePath.length;
+// 	}, 7500);
+// }
+// rotateForwards();
+
+// function rotateBackwards() {
+// 	clearInterval(intervalID); // Clear previous interval
+// 	intervalID = setInterval(() => {
+// 		imgtag = (imgtag - 1 + cubeSides.length) % cubeSides.length;
+// 		srcIndex = (srcIndex - 1 + imagesFilePath.length) % imagesFilePath.length;
+// 		(cubeSides[imgtag] as HTMLImageElement).src = imagesFilePath[srcIndex];
+// 	}, 7500);
+// }
+
+// leftButton.onclick = () => {
+// 	cube.style.animation = "turnLeft 30s linear infinite";
+// 	rotateBackwards();
+// };
+
+// rightButton.onclick = () => {
+// 	cube.style.animation = "turnRight 30s linear infinite";
+// 	rotateForwards();
+// };
+
+// cube.onclick = () => {
+//   if (isAnimating) {
+//     // If animation is running, stop it gradually
+//     clearInterval(intervalID);
+//     cube.style.animationPlayState = "paused";
+//     isAnimating = false;
+//   } else {
+//     // If animation is paused, resume it
+//     rotateForwards();
+//     cube.style.animationPlayState = "running";
+//     isAnimating = true;
+//   }
+// };
 ---
 
 <Layout title="Alpha Tree Service">
 	<main>
 		<Title />
-
+		<div id="container">
+			<ion-icon name="chevron-back" id="back-icon"></ion-icon>
+			<div id="cube">
+		  
+			  <div class="side front"><img src="https://atsio.xyz/static/500x500/20210709_093724_500x500.webp" alt="front" class="side-img" /></div>
+			  <div class="side left"><img src="https://atsio.xyz/static/500x500/20210709_093733_500x500.webp" alt="left" class="side-img" /></div>
+			  <div class="side back"><img src="https://atsio.xyz/static/500x500/20210803_143438_500x500.webp" alt="back" class="side-img" /></div>
+			  <div class="side right">
+				<img src="https://atsio.xyz/static/500x500/main_500x500.webp" alt="right" class="side-img" />
+			  </div>
+			</div>
+		  
+			<ion-icon name="chevron-forward" id="forward-icon"></ion-icon>
+		  </div>
 		
-		<picture>
+		<!-- <picture>
 			<source
 				media="(min-width: 600px)"
 				srcset="https://atsio.xyz/static/landscape/main_img_600.webp"
@@ -26,7 +98,7 @@ import FiveStar from "../components/star_five.astro";
 				src="https://atsio.xyz/static/landscape/main_img_800.webp"
 				alt="Alpha Tree Service"
 			/>
-		</picture>
+		</picture> -->
 		
 		<Telephone />
 
@@ -89,6 +161,72 @@ import FiveStar from "../components/star_five.astro";
 	</main>
 </Layout>
 
+<script>
+const cube = document.getElementById("cube");
+const leftButton = document.getElementById("back-icon");
+const rightButton = document.getElementById("forward-icon");
+const cubeSides = document.querySelectorAll(".side-img");
+
+let imagesFilePath = [
+  "https://atsio.xyz/static/500x500/main_500x500.webp",
+  "https://atsio.xyz/static/500x500/20210803_143438_500x500.webp",
+  "https://atsio.xyz/static/500x500/20210709_093733_500x500.webp",
+  "https://atsio.xyz/static/500x500/20210709_093724_500x500.webp",
+  "https://atsio.xyz/static/500x500/20210901_110629_500x500.webp",
+  "https://atsio.xyz/static/500x500/20210903_114214_500x500.webp",
+  "https://atsio.xyz/static/500x500/20211016_144859_500x500.webp"
+];
+
+let imgtag = 0;
+let srcIndex = 4;
+let intervalID: number;
+let isAnimating = true;
+
+function rotateForwards() {
+	clearInterval(intervalID); // Clear previous interval
+	intervalID = setInterval(() => {
+		(cubeSides[imgtag] as HTMLImageElement).src = imagesFilePath[srcIndex];
+		imgtag = (imgtag + 1) % cubeSides.length;
+		srcIndex = (srcIndex + 1) % imagesFilePath.length;
+	}, 7500);
+}
+rotateForwards();
+
+function rotateBackwards() {
+	clearInterval(intervalID); // Clear previous interval
+	intervalID = setInterval(() => {
+		imgtag = (imgtag - 1 + cubeSides.length) % cubeSides.length;
+		srcIndex = (srcIndex - 1 + imagesFilePath.length) % imagesFilePath.length;
+		(cubeSides[imgtag] as HTMLImageElement).src = imagesFilePath[srcIndex];
+	}, 7500);
+}
+
+leftButton.onclick = () => {
+	cube.style.animation = "turnLeft 30s linear infinite";
+	rotateBackwards();
+};
+
+rightButton.onclick = () => {
+	cube.style.animation = "turnRight 30s linear infinite";
+	rotateForwards();
+};
+
+cube.onclick = () => {
+  if (isAnimating) {
+    // If animation is running, stop it gradually
+    clearInterval(intervalID);
+    cube.style.animationPlayState = "paused";
+    isAnimating = false;
+  } else {
+    // If animation is paused, resume it
+    rotateForwards();
+    cube.style.animationPlayState = "running";
+    isAnimating = true;
+  }
+};
+
+</script>
+
 <style>
 	p {
 		font-size: 1.25rem;
@@ -149,4 +287,86 @@ import FiveStar from "../components/star_five.astro";
 			font-size: 1.5rem;
 		}
 	}
+
+
+
+
+	#container {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  
+  ion-icon {
+    font-size: 50px;
+    cursor: pointer;
+    z-index: 100;
+  }
+  
+  ion-icon:hover {
+    color: brown;
+  }
+  
+  #cube {
+    width: min(55vw, 500px);
+    aspect-ratio: 1;
+    margin: 40px;
+    border-radius: 15px;
+    position: relative;
+    transform-style: preserve-3d;
+    animation: turnRight 30s linear infinite;
+    cursor: pointer;
+  }
+  
+  @keyframes turnRight {
+    0% {
+      transform: rotateX(5deg) rotateY(0deg);
+    }
+    100% {
+      transform: rotateX(5deg) rotateY(360deg);
+    }
+  }
+  
+  @keyframes turnLeft {
+    0% {
+      transform: rotateX(5deg) rotateY(360deg);
+    }
+    100% {
+      transform: rotateX(5deg) rotateY(0deg);
+    }
+  }
+  
+  .side {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border: 1px solid black;
+    text-align: center;
+    line-height: 200px;
+    border-radius: 15px;
+    -webkit-box-reflect: below 40px linear-gradient(to bottom, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.2));
+  }
+  
+  .side-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  
+  .front {
+    transform: translateZ(calc(min(55vw, 500px) / 2));
+  }
+  
+  .back {
+    transform: translateZ(calc(-1 * min(55vw, 500px) / 2)) rotateY(180deg);
+  }
+  
+  .right {
+    transform: rotateY(90deg) translateZ(calc(min(55vw, 500px) / 2));
+  }
+  
+  .left {
+    transform: rotateY(-90deg) translateZ(calc(min(55vw, 500px) / 2));
+  }
 </style>
