@@ -19,39 +19,39 @@ let imagesFilePath = [
 
 let imgtag = 0;
 let srcIndex = 4;
-let intervalID;
+let intervalID: number;
 let isAnimating = true;
 
 function rotateForwards() {
-  clearInterval(intervalID); // Clear previous interval
-  intervalID = setInterval(() => {
-    cubeSides[imgtag].src = imagesFilePath[srcIndex];
-    imgtag = (imgtag + 1) % cubeSides.length;
-    srcIndex = (srcIndex + 1) % imagesFilePath.length;
-  }, 7500);
+	clearInterval(intervalID); // Clear previous interval
+	intervalID = setInterval(() => {
+		(cubeSides[imgtag] as HTMLImageElement).src = imagesFilePath[srcIndex];
+		imgtag = (imgtag + 1) % cubeSides.length;
+		srcIndex = (srcIndex + 1) % imagesFilePath.length;
+	}, 7500);
 }
 rotateForwards();
 
 function rotateBackwards() {
-  clearInterval(intervalID); // Clear previous interval
-  intervalID = setInterval(() => {
-    imgtag = (imgtag - 1 + cubeSides.length) % cubeSides.length;
-    srcIndex = (srcIndex - 1 + imagesFilePath.length) % imagesFilePath.length;
-    cubeSides[imgtag].src = imagesFilePath[srcIndex];
-  }, 7500);
+	clearInterval(intervalID); // Clear previous interval
+	intervalID = setInterval(() => {
+		imgtag = (imgtag - 1 + cubeSides.length) % cubeSides.length;
+		srcIndex = (srcIndex - 1 + imagesFilePath.length) % imagesFilePath.length;
+		(cubeSides[imgtag] as HTMLImageElement).src = imagesFilePath[srcIndex];
+	}, 7500);
 }
 
 leftButton.onclick = () => {
-  cube.style.animation = "turnLeft 30s linear infinite";
-  rotateBackwards();
+	cube.style.animation = "turnLeft 30s linear infinite";
+	rotateBackwards();
 };
 
 rightButton.onclick = () => {
-  cube.style.animation = "turnRight 30s linear infinite";
-  rotateForwards();
+	cube.style.animation = "turnRight 30s linear infinite";
+	rotateForwards();
 };
 
-cube.onclick = (e) => {
+cube.onclick = () => {
   if (isAnimating) {
     // If animation is running, stop it gradually
     clearInterval(intervalID);
